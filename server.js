@@ -174,6 +174,11 @@ app.post("/orders", payment.orderCreate);
 app.post("/paymentVerification", payment.verifyPayment);
 app.post("/saveOrderInDatabase", payment.saveOrderInDatabase);
 
+
+app.get("/", (req, res) => {
+    res.send({ "msg": "Welcome to the homepage" })
+})
+
 app.listen(PORT, () => {
-    console.log(`Server is connected`);
+    console.log(`Server is connected ${PORT}`);
 });
