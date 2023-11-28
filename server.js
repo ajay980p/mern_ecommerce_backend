@@ -16,7 +16,14 @@ let PORT = process.env.PORT || 4000
 // Enable JSON request body parsing
 app.use(express.json());
 // Enable CORS
-app.use(cors());
+const corsOptions = {
+    origin: 'https://65662f4c433de700815894f3--taupe-bienenstitch-4836d2.netlify.app/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204
+};
+// Use the cors middleware with custom options
+app.use(cors(corsOptions));
 
 // JWT Token Verify
 function verifyToken(req, res, next) {
